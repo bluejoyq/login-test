@@ -8,6 +8,8 @@ module.exports = {
     },
   },
   extends: [
+    "plugin:import/errors",
+    "plugin:import/warnings",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
   ],
