@@ -1,10 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useState } from "react";
 import { CustomBtn } from "../commons/btn";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import useAuthStore from "../store/auth";
 const getEmail = () => {
-  const isLogin = useAuthStore((state) => state.isLogin);
   const authToken = useAuthStore((state) => state.authToken);
 
   const CheckAuth = async (accessToken: string) => {
