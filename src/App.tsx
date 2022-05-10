@@ -1,14 +1,14 @@
-import React from "react";
-import Google from "./components/google";
-import GetEmail from "./components/getEmail";
-import Logout from "./components/logout";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import SocialLogin from "./pages/socialLogin";
 function App() {
   return (
-    <div className="w-full h-64 flex justify-center items-center flex-col gap-5">
-      <Google />
-      <GetEmail />
-      <Logout />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="redirect" element={<SocialLogin />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

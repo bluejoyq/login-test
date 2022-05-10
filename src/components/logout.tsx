@@ -5,10 +5,16 @@ import useAuthStore from "../store/auth";
 function Logout() {
   const logout = useAuthStore((state) => state.logout);
   const authToken = useAuthStore((state) => state.authToken);
-  const handleLogout = () => {
+  const handleLogout = async () => {
     logout();
-    axios.post(`https://oauth2.googleapis.com/revoke?token=${authToken}`);
-    window.location.assign("http://localhost:3000/");
+    await axios
+      .post(`https://oauth2.googleapis.com/revoke?token=${authToken}`)
+      .then(() => {
+        window.location.assign("http://localhost:3000/");
+      })
+      .catch(() => {
+        alert("로그아웃에 실패했습니다.");
+      });
   };
 
   return <CustomBtn onClick={handleLogout}>logout</CustomBtn>;
