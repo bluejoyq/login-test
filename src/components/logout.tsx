@@ -1,8 +1,9 @@
 import axios from "axios";
+import { ReactElement } from "react";
 import { CustomBtn } from "../commons/btn";
 import useAuthStore from "../store/auth";
 
-function Logout() {
+const Logout = (): ReactElement => {
   const logout = useAuthStore((state) => state.logout);
   const authToken = useAuthStore((state) => state.authToken);
   const handleLogout = async () => {
@@ -18,6 +19,6 @@ function Logout() {
   };
 
   return <CustomBtn onClick={handleLogout}>logout</CustomBtn>;
-}
+};
 
 export default Logout;

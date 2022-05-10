@@ -1,7 +1,8 @@
+import { ReactElement } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import SocialLogin from "./pages/socialLogin";
-function App() {
+const App = (): ReactElement => {
   return (
     <BrowserRouter>
       <Routes>
@@ -10,6 +11,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

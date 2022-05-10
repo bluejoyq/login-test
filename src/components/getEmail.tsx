@@ -1,10 +1,13 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { CustomBtn } from "../commons/btn";
 import axios from "axios";
+import { ReactElement } from "react";
+import { CustomBtn } from "../commons/btn";
+import { useNavigate } from "react-router-dom";
 import useAuthStore from "../store/auth";
-const getEmail = () => {
-  const authToken = useAuthStore((state) => state.authToken);
 
+const getEmail = (): ReactElement => {
+  const authToken = useAuthStore((state) => state.authToken);
+  const navigate = useNavigate();
   const CheckAuth = async (accessToken: string) => {
     await axios
       .get("https://www.googleapis.com/oauth2/v2/userinfo", {
@@ -17,7 +20,7 @@ const getEmail = () => {
       })
       .catch((err) => {
         alert("oAuth token expired");
-        window.location.assign("http://localhost:3000");
+        navigate("/");
       });
   };
   return (

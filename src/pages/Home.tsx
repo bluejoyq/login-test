@@ -1,7 +1,9 @@
+import { ReactElement } from "react";
 import Google from "../components/google";
 import GetEmail from "../components/getEmail";
 import Logout from "../components/logout";
-const Home = () => {
+
+const Home = (): ReactElement => {
   return (
     <div className="w-full h-64 flex justify-center items-center flex-col gap-5">
       <Google />

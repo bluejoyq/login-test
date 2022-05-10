@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { ReactElement, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuthStore from "../store/auth";
-const SocialLogin = () => {
+const SocialLogin = (): ReactElement => {
   const login = useAuthStore((state) => state.login);
   const navigate = useNavigate();
   useEffect(() => {
